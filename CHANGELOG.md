@@ -1,3 +1,29 @@
+## 0.4.8
+
+`2018-12-19`
+
+- **Feature**
+  - 新增`flex`、`flex-item`布局组件
+
+- **Enhancement**
+  - `steps`支持自定义icon
+  - `amount-input`支持`controlled`属性
+
+## 0.4.7
+
+`2018-12-07`
+
+- **Enhancement**
+  - `swipe-action`版本判断优化([#176](https://github.com/ant-mini-program/mini-antui/issues/176))
+  - `stepper`value属性类型兼容字符串
+
+## 0.4.6
+
+`2018-11-28`
+
+- **Enhancement**
+  - `list-item`替换图片资源为base64
+
 ## 0.4.5
 
 `2018-11-21`
