@@ -3,7 +3,7 @@
     onChange="onChange"
     title="{{item.title}}"
     showArrow="{{item.showArrow}}"
-    isActive="{{item.isActive}}"
+    isOpen="{{item.isOpen}}"
     defaultContentHeight="{{item.defaultContentHeight}}"
   >
     <view class="item-content">

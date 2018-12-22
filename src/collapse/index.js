@@ -15,7 +15,7 @@ Component({
   props: {
     id: '', // 默认随机数
     title: '',
-    isActive: false,
+    isOpen: false,
     showArrow: true,
     activeClass: '',
     className: '',
@@ -27,14 +27,14 @@ Component({
   },
 
   didMount() {
-    const { isActive, defaultContentHeight } = this.props;
+    const { isOpen, defaultContentHeight } = this.props;
     this.setData({
-      isActive,
+      isActive: isOpen,
       contentId: uniqId(),
       contentHeight: defaultContentHeight,
     });
     this.updateStyle({
-      isActive,
+      isActive: isOpen,
     });
   },
 

@@ -6,7 +6,7 @@ Page({
       contentItems: ['这是一个content的部分', '这是一个content的部分', '这是一个content的部分'],
     }, {
       title: '这是一个title2',
-      isActive: true,
+      isOpen: true,
       contentItems: ['这是一个content的部分', '这是一个content的部分', '这是一个content的部分', '这是一个content的部分', '这是一个content的部分', '这是一个content的部分', '这是一个content的部分', '这是一个content的部分'],
       defaultContentHeight: 466,
     }, {
