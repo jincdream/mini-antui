@@ -1,38 +1,31 @@
 <view>
-  <view style="text-align: center; padding: 5px 0px;">
-    <text>Demo of pagination</text>
-  </view>
-  <view style="margin-top: 20px;">
-    <pagination
-      totalItems="{{totalItems}}"
-      pageSize="{{pageSize}}"
-      maxPageToShow="{{maxPageToShow}}"
-    />  
-  </view>
-  <view style="margin-top: 30px;">
-    <pagination
-      totalItems="{{totalItems}}"
-      pageSize="{{pageSize}}" 
-      maxPageToShow="{{maxPageToShow}}"
-      currentIndex="{{currentIndex}}"
-      showEllipses="true"
-    />  
-  </view>  
-  <view style="margin-top: 30px;">
-    <pagination
-      totalItems="{{totalItems}}"
-      pageSize="{{pageSize}}"
-      maxPageToShow="{{maxPageToShow}}"
-      showEllipses="true"
-    />
-  </view>
-  <view style="margin-top: 30px;">
-    <pagination
-      totalItems="{{totalItems}}"
-      pageSize="{{pageSize}}"
-      maxPageToShow="{{maxPageToShow}}"
-      showEllipses="true"
-      mode="simple"
-    />
-  </view>
+  <view class="demo-desc">基础用法</view>
+  <pagination
+    totalItems="{{totalItems}}"
+    pageSize="{{pageSize}}"
+    maxPageToShow="{{maxPageToShow}}"
+  />
+  <view class="demo-desc">未显示页数省略号</view>
+  <pagination
+    totalItems="{{totalItems}}"
+    pageSize="{{pageSize}}"
+    maxPageToShow="{{maxPageToShow}}"
+    showEllipses="true"
+  />
+  <view class="demo-desc">指定当前页</view>
+  <pagination
+    totalItems="{{totalItems}}"
+    pageSize="{{pageSize}}" 
+    maxPageToShow="{{maxPageToShow}}"
+    currentIndex="{{currentIndex}}"
+    showEllipses="true"
+  />
+  <view class="demo-desc">简单模式</view>
+  <pagination
+    totalItems="{{totalItems}}"
+    pageSize="{{pageSize}}"
+    maxPageToShow="{{maxPageToShow}}"
+    showEllipses="true"
+    mode="simple"
+  />
 </view>

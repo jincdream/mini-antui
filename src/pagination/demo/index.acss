@@ -1,0 +1,4 @@
+.demo-desc {
+  padding: 10px;
+  color: #333;
+}
