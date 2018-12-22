@@ -14,12 +14,23 @@
   min-width: 16px;
   padding: 0;
   height: 16px;
-  line-height: 16px;
   text-align: center;
   background-color: #FF3B30;
   border-radius: 16px;
   color: #fff;
+}
+
+.am-badge-text-padding {
   font-size: 10px;
+  opacity: 0;
+}
+
+.am-badge-text-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .am-badge-text.am-badge-double {
