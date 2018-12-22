@@ -1,5 +1,7 @@
-<view a:for="{{collapseData}}">
+<view class="collapse-demo-container" a:for="{{collapseData}}">
+  <view class="item-desc">{{item.desc}}</view>
   <collapse
+    class="collapse"
     onChange="onChange"
     title="{{item.title}}"
     showArrow="{{item.showArrow}}"
@@ -9,7 +11,7 @@
     <view class="item-content">
       <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
         <view>{{contentItem}}</view>
-      </view>
+      </view>      
     </view>
   </collapse>
 </view>
