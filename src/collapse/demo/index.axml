@@ -4,9 +4,12 @@
     title="{{item.title}}"
     showArrow="{{item.showArrow}}"
     isActive="{{item.isActive}}"
+    defaultContentHeight="{{item.defaultContentHeight}}"
   >
-    <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
-      <view>{{contentItem}}</view>
+    <view class="item-content">
+      <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
+        <view>{{contentItem}}</view>
+      </view>
     </view>
   </collapse>
 </view>

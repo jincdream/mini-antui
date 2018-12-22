@@ -1,7 +1,6 @@
 .am-collapse {
   border-radius: 4px;
   background-color: #fff;
-  border: 1px solid #d9d9d9;
 }
 
 .am-collapse--disabled .am-collapse-title {
@@ -13,23 +12,30 @@
   line-height: 22rpx;
   padding: 10px 20px;
   align-items: center;
-  transition: all .3s;
   color: rgba(0,0,0,.85);
-  background-color: #f5f5f5;
+  background-color: #fff;
   justify-content: space-between;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid rgba(238, 238, 238, 0);
+  transition: border-bottom 0.1s linear 0.1s;
 }
 
-.am-collapse-content {
+.am-collapse-title.title--active {
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.am-collapse-content-wrapper {
   overflow-y: hidden;
   box-sizing: border-box;
-  transition: max-height ease-in-out .3s;
+  will-change: max-height;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .am-collapse-title-arrow {
   width: 13px;
   height: 13px;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAYAAAC+aNwHAAAAkElEQVR4AWJwL/BhAJRWByYAgkAUhmdpkDZxlJZqD9UpXCPyBUTEga9+4IkI94F1XaWUTdH+a67inPOhjP2OgD+IFoTcm1GY3khrbfGAGFG6kBmAkPCw1rq6iBYb0VkEzJD+hHQWAz6iJBtQdP8YiQEbUQNiAF0BP0T+Gnkj8VbmHxMq5gOFjzQ+VPlYxz+WEyrVzhdMcxADAAAAAElFTkSuQmCC") center center no-repeat;
-  background-size: 8px 13px;
+  transition: all 0.2s ease-out;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAYAAAC+aNwHAAAAkElEQVR4AWJwL/BhAJRWByYAgkAUhmdpkDZxlJZqD9UpXCPyBUTEga9+4IkI94F1XaWUTdH+a67inPOhjP2OgD+IFoTcm1GY3khrbfGAGFG6kBmAkPCw1rq6iBYb0VkEzJD+hHQWAz6iJBtQdP8YiQEbUQNiAF0BP0T+Gnkj8VbmHxMq5gOFjzQ+VPlYxz+WEyrVzhdMcxADAAAAAElFTkSuQmCC") center center / 8px 13px no-repeat;
 }
 
 .arrow--down {

@@ -1,13 +1,19 @@
+const noop = () => {};
 const randUnit = 10;
-const uniqId = () => Math.random().toString().slice(-randUnit);
+const uniqId = () =>
+  Math.random()
+    .toString()
+    .slice(-randUnit);
 
 Component({
   data: {
-    isOpen: false
+    isActive: false,
+    contentHeight: 0,
+    contentId: '',
   },
 
   props: {
-    id: uniqId(), // 默认随机数
+    id: '', // 默认随机数
     title: '',
     isActive: false,
     showArrow: true,
@@ -15,26 +21,69 @@ Component({
     className: '',
     titleClass: '',
     contentClass: '',
+    defaultContentHeight: 0,
     disabled: false,
-    onChange: () => {}
+    onChange: () => {},
   },
 
   didMount() {
-    const { isActive } = this.props;
-    this.setData({ isOpen: isActive });
+    const { isActive, defaultContentHeight } = this.props;
+    this.setData({
+      isActive,
+      contentId: uniqId(),
+      contentHeight: defaultContentHeight,
+    });
+    this.updateStyle({
+      isActive,
+    });
   },
 
   methods: {
     onCollapseTap(evt) {
       if (!this.props.disabled) {
-        this.setData({ isOpen: !this.data.isOpen });
-        const { dataset } = evt.currentTarget;
-        evt.currentTarget.dataset = {
-          ...dataset,
-          isActive: this.data.isOpen
-        };
-        this.props.onChange(evt);
+        const isActive = !this.data.isActive;
+        this.updateStyle({
+          isActive,
+          callback: () => {
+            const { dataset } = evt.currentTarget;
+            const wrappedEvt = { ...evt };
+            wrappedEvt.currentTarget.dataset = {
+              ...dataset,
+              isActive,
+            };
+            this.props.onChange(wrappedEvt);
+          },
+        });
       }
-    }
-  }
-})
+    },
+
+    updateStyle({ isActive, callback = noop }) {
+      if (!isActive) {
+        this.setData({ isActive, contentHeight: 0 });
+        callback();
+      } else {
+        this.calcContentHeight(
+          `.am-collapse-content.${`am-collapse-content-${this.data.contentId}`}`
+        ).then((height) => {
+          this.setData({ isActive, contentHeight: height });
+          callback();
+        });
+      }
+    },
+
+    calcContentHeight(selector = '') {
+      return new Promise((resolve, reject) => {
+        my.createSelectorQuery()
+          .select(selector)
+          .boundingClientRect()
+          .exec((res) => {
+            if (res && res[0]) {
+              resolve(res[0].height);
+            } else {
+              reject(res);
+            }
+          });
+      });
+    },
+  },
+});
