@@ -1,17 +1,40 @@
-<view class="collapse-demo-container" a:for="{{collapseData}}">
-  <view class="item-desc">{{item.desc}}</view>
+<view class="collapse-demo-container">
+  <view a:for="{{collapseData}}">
+    <view class="item-desc">{{item.desc}}</view>
+    <collapse
+      class="collapse"
+      onChange="onChange"
+      title="{{item.title}}"
+      showArrow="{{item.showArrow}}"
+      isOpen="{{item.isOpen}}"
+      defaultContentHeight="{{item.defaultContentHeight}}"
+    >
+      <view class="item-content">
+        <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
+          <view>{{contentItem}}</view>
+        </view>
+      </view>
+    </collapse>  
+  </view>
+  <view class="item-desc">自定义title内容</view>
   <collapse
     class="collapse"
     onChange="onChange"
-    title="{{item.title}}"
-    showArrow="{{item.showArrow}}"
-    isOpen="{{item.isOpen}}"
-    defaultContentHeight="{{item.defaultContentHeight}}"
+    showArrow="{{true}}"
+    isOpen="{{true}}"
   >
+    <view slot="title" class="title-self-defined">
+      <view class="title-icon" />
+      <text class="title-text">这是一个自定义的title</text>
+    </view>
     <view class="item-content">
-      <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
+      <view
+        a:for="{{['这是一个内容', '这是一个内容', '这是一个内容']}}"
+        a:for-item="contentItem"
+        class="container-content"
+      >
         <view>{{contentItem}}</view>
-      </view>      
+      </view>
     </view>
   </collapse>
 </view>

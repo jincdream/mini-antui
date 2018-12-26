@@ -18,3 +18,25 @@
 .container-content {
   padding: 20px 30px;
 }
+
+.title-self-defined::before {
+  content: '';
+  width: 0px;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.title-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #eee;
+  margin-right: 10px;
+}
+
+.title-text {
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -9,7 +9,11 @@
     data-title="{{title}}"
     data-isActive="{{isActive}}"
   >
-    <text>{{title}}</text>
+    <view class="am-collapse-title-text-wrapper">
+      <slot name="title">
+        <text>{{title}}</text>
+      </slot>
+    </view>
     <view
       a:if="{{showArrow}}"
       class="am-collapse-title-arrow {{`arrow--${isActive ? 'down' : 'right'}`}}"
