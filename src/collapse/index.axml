@@ -1,3 +1,3 @@
 <view class="am-collapse {{`am-collapse-container-${id}`}}">
-  <slot test="heiheihei"></slot>
+  <slot></slot>
 </view>
