@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Page",
+  "defaultTitle": "Collapse",
   "usingComponents": {
     "collapse": "../index",
     "collapse-item": "../collapse-item/index"
