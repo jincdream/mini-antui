@@ -1,5 +1,6 @@
 {
   "pages": [
+    "collapse/demo/index",
     "list/demo/app",
     "list/demo/index",
     "amount-input/demo/index",
@@ -49,8 +50,7 @@
     "message/demo/fail/index",
     "message/demo/info/index",
     "message/demo/waiting/index",
-    "message/demo/warn/index",
-    "collapse/demo/index"
+    "message/demo/warn/index"
   ],
   "window": {
     "enableWK": "YES",

@@ -1,40 +1,38 @@
-<view class="collapse-demo-container">
-  <view a:for="{{collapseData}}">
-    <view class="item-desc">{{item.desc}}</view>
-    <collapse
-      class="collapse"
-      onChange="onChange"
-      title="{{item.title}}"
-      showArrow="{{item.showArrow}}"
-      isOpen="{{item.isOpen}}"
-      defaultContentHeight="{{item.defaultContentHeight}}"
-    >
-      <view class="item-content">
-        <view a:for="{{item.contentItems}}" a:for-item="contentItem" class="container-content">
-          <view>{{contentItem}}</view>
-        </view>
+<view>
+  <view class="demo-title">基础用法</view>
+  <collapse collapseKey="collapse1" activeKey="{{['item-11', 'item-13']}}" onChange="onChange">
+    <collapse-item header="标题1" itemKey="item-11" collapseKey="collapse1">
+      <view class="item-content content1">
+        <view>内容区域</view>
+      </view>                
+    </collapse-item>
+    <collapse-item header="标题2" itemKey="item-12" collapseKey="collapse1">
+      <view class="item-content content2">
+        <view>内容区域</view>
       </view>
-    </collapse>  
-  </view>
-  <view class="item-desc">自定义title内容</view>
-  <collapse
-    class="collapse"
-    onChange="onChange"
-    showArrow="{{true}}"
-    isOpen="{{true}}"
-  >
-    <view slot="title" class="title-self-defined">
-      <view class="title-icon" />
-      <text class="title-text">这是一个自定义的title</text>
-    </view>
-    <view class="item-content">
-      <view
-        a:for="{{['这是一个内容', '这是一个内容', '这是一个内容']}}"
-        a:for-item="contentItem"
-        class="container-content"
-      >
-        <view>{{contentItem}}</view>
+    </collapse-item>
+    <collapse-item header="标题3" itemKey="item-13" collapseKey="collapse1">
+      <view class="item-content content3">
+        <view>内容区域</view>         
       </view>
-    </view>
+    </collapse-item>
   </collapse>
+  <view class="demo-title">手风琴模式</view>
+  <collapse collapseKey="collapse2" activeKey="{{['item-21', 'item-23']}}" onChange="onChange" accordion="{{true}}">
+    <collapse-item header="标题1" itemKey="item-21" collapseKey="collapse2">
+      <view class="item-content content1">
+        <view>内容区域</view>
+      </view>                
+    </collapse-item>
+    <collapse-item header="标题2" itemKey="item-22" collapseKey="collapse2">
+      <view class="item-content content2">
+        <view>内容区域</view>
+      </view>
+    </collapse-item>
+    <collapse-item header="标题3" itemKey="item-23" collapseKey="collapse2">
+      <view class="item-content content3">
+        <view>内容区域</view>         
+      </view>
+    </collapse-item>
+  </collapse>  
 </view>

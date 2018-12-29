@@ -1,88 +1,71 @@
 const noop = () => {};
-const randUnit = 10;
-const uniqId = () =>
-  Math.random()
-    .toString()
-    .slice(-randUnit);
 
 Component({
   data: {
-    isActive: false,
-    contentHeight: 0,
-    contentId: '',
+    id: '',
+    activeArr: [],
   },
 
   props: {
-    id: '', // 默认随机数
-    title: '',
-    isOpen: false,
-    showArrow: true,
-    activeClass: '',
-    className: '',
-    titleClass: '',
-    contentClass: '',
-    defaultContentHeight: 0,
-    disabled: false,
-    onChange: () => {},
+    activeKey: [],
+    accordion: false,
+    onChange: noop,
+    openAnimation: {},
+    collapseKey: '',
   },
 
   didMount() {
-    const { isOpen, defaultContentHeight } = this.props;
-    this.setData({
-      isActive: isOpen,
-      contentId: uniqId(),
-      contentHeight: defaultContentHeight,
-    });
-    this.updateStyle({
-      isActive: isOpen,
-    });
+    this.initData();
   },
 
   methods: {
-    onCollapseTap(evt) {
-      if (!this.props.disabled) {
-        const isActive = !this.data.isActive;
-        this.updateStyle({
-          isActive,
-          callback: () => {
-            const { dataset } = evt.currentTarget;
-            const wrappedEvt = { ...evt };
-            wrappedEvt.currentTarget.dataset = {
-              ...dataset,
-              isActive,
-            };
-            this.props.onChange(wrappedEvt);
-          },
-        });
+    initData() {
+      const { accordion, activeKey, collapseKey } = this.props;
+      let activeArr = [];
+      this.$page[`handleItemTap-${collapseKey}`] = this.handleItemTap.bind(this);
+      if (accordion) {
+        if (typeof activeKey === 'string') {
+          activeArr = [activeKey];
+        } else {
+          activeArr = [this.$page[`ids-${collapseKey}`] && this.$page[`ids-${collapseKey}`][0]];
+        }
+      } else if (typeof activeKey === 'string') {
+        activeArr = [activeKey];
+      } else if (activeKey instanceof Array) {
+        activeArr = activeKey;
       }
+      this.updateItems(activeArr);
     },
 
-    updateStyle({ isActive, callback = noop }) {
-      if (!isActive) {
-        this.setData({ isActive, contentHeight: 0 });
-        callback();
+    handleItemTap(key) {
+      const { activeArr } = this.data;
+      if (this.props.accordion) {
+        if (activeArr.indexOf(key) === -1) {
+          this.updateItems([key]);
+        } else {
+          this.updateItems([]);
+        }
       } else {
-        this.calcContentHeight(
-          `.am-collapse-content.${`am-collapse-content-${this.data.contentId}`}`
-        ).then((height) => {
-          this.setData({ isActive, contentHeight: height });
-          callback();
-        });
+        const index = activeArr.indexOf(key);
+        if (index !== -1) {
+          activeArr.splice(index, 1);
+        } else {
+          activeArr.push(key);
+        }
+        this.updateItems(activeArr);
       }
     },
 
-    calcContentHeight(selector = '') {
-      return new Promise((resolve, reject) => {
-        my.createSelectorQuery()
-          .select(selector)
-          .boundingClientRect()
-          .exec((res) => {
-            if (res && res[0]) {
-              resolve(res[0].height);
-            } else {
-              reject(res);
-            }
+    updateItems(activeArr) {
+      const { collapseKey } = this.props;
+      this.setData({ activeArr });
+      this.props.onChange(activeArr);
+      this.$page[`updates-${collapseKey}`].forEach((update) => {
+        if (update instanceof Function) {
+          update({
+            activeKey: this.data.activeArr,
           });
+        }
       });
     },
   },

@@ -1,42 +1,23 @@
-.collapse-demo-container {
-  padding-top: 10px;
-}
-
-.item-desc {
-  padding: 10px 10px;
-}
-
-.collapse {
-  margin-bottom: 10px;
-}
-
 .item-content {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  padding: 14px 16px;
+  font-size: 17px;
+  color: #333;
+  line-height: 24px;
 }
 
-.container-content {
-  padding: 20px 30px;
+.content1 {
+  height: 200px;
 }
 
-.title-self-defined::before {
-  content: '';
-  width: 0px;
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
+.content2 {
+  height: 50px;
 }
 
-.title-icon {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  vertical-align: middle;
-  background-color: #eee;
-  margin-right: 10px;
+.content3 {
+  height: 100px;
 }
 
-.title-text {
-  display: inline-block;
-  vertical-align: middle;
+.demo-title {
+  padding: 14px 16px;
+  color: #999;
 }
