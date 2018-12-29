@@ -12,6 +12,7 @@ Component({
     onChange: noop,
     openAnimation: {},
     collapseKey: '',
+    className: '',
   },
 
   didMount() {

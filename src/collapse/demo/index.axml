@@ -1,6 +1,11 @@
 <view>
   <view class="demo-title">基础用法</view>
-  <collapse collapseKey="collapse1" activeKey="{{['item-11', 'item-13']}}" onChange="onChange">
+  <collapse
+    className="demo-collapse"
+    collapseKey="collapse1"
+    activeKey="{{['item-11', 'item-13']}}"
+    onChange="onChange"
+  >
     <collapse-item header="标题1" itemKey="item-11" collapseKey="collapse1">
       <view class="item-content content1">
         <view>内容区域</view>
@@ -18,7 +23,13 @@
     </collapse-item>
   </collapse>
   <view class="demo-title">手风琴模式</view>
-  <collapse collapseKey="collapse2" activeKey="{{['item-21', 'item-23']}}" onChange="onChange" accordion="{{true}}">
+  <collapse
+    className="demo-collapse"
+    collapseKey="collapse2"
+    activeKey="{{['item-21', 'item-23']}}"
+    onChange="onChange"
+    accordion="{{true}}"
+  >
     <collapse-item header="标题1" itemKey="item-21" collapseKey="collapse2">
       <view class="item-content content1">
         <view>内容区域</view>
