@@ -14,7 +14,7 @@
 
 | 属性名 | 描述 | 类型 | 默认值 | 必选 |
 |----|----|----|----|----|
-| key | 对应 activeKey | String | 组件唯一标识 | false |
+| itemKey | 对应 activeKey | String | 组件唯一标识 | false |
 | header | 面板头内容	| String | 无 | false |
 | collapseKey | 唯一标示collapse和对应的collapse-item | String | false | false |
 
